@@ -49,7 +49,7 @@ function drawEventHeader(event, y) {
 }
 
 function drawEventBody(event, y) {
-  g.setFont("12x20", 1);
+  g.setFont("6x8", 1);
   var lines = g.wrapString(event.title, g.getWidth()-15);
   var yStart = y;
   if (lines.length > 2) {
