@@ -5,6 +5,7 @@ Bluetooth.println(JSON.stringify({t:"intent", action:"", flags:["flag1", "flag2"
 
 let R;
 let widgetUtils = require("widget_utils");
+//const clock_info = require("clock_info");
 let backToMenu = false;
 let isPaused = true;
 let dark = g.theme.dark; // bool
@@ -26,11 +27,19 @@ let gfx = function() {
   g.setFontAlign(-1, 0, 0);
   g.drawString("<-", R.x + marigin, R.y + R.h/2);
 
+  var date = new Date();
+
+  var hours = String(date.getHours());
+  var minutes = date.getMinutes();
+  minutes = minutes < 10 ? String("0") + minutes : minutes;
+  var colon = false ? "" : ":";
+  var timeStr = hours + colon + minutes;
+  
   g.setFontAlign(-1, 0, 1);
-  g.drawString("<-", R.x + R.w/2, R.y + marigin);
+  g.drawString(timeStr, R.x + R.w/2, R.y + marigin);
 
   g.setFontAlign(1, 0, 1);
-  g.drawString("->", R.x + R.w/2, R.y2 - marigin);
+  g.drawString("-->", R.x + R.w/2, R.y2 - marigin);
 
   g.setFontAlign(0, 0, 0);
   g.drawString("Play\nPause", R.x + R.w/2, R.y + R.h/2);
@@ -281,6 +290,7 @@ let savedMenu = {
   "Open \"The Blue Room\" EP (no autoplay)" : ()=>{openAlbum();},
   "Play \"The Blue Room\" EP via search&play" : ()=>{searchPlayAlbum();},
 };
+  
 
 Bangle.loadWidgets();
 setUI();
