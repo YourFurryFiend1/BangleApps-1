@@ -126,6 +126,15 @@ function redraw() {
   }
 }
 
+let timeout;
+const updateTimeout = function(){
+  
+  let time=10;
+  if (timeout) clearTimeout(timeout);
+  timeout = setTimeout(Bangle.showClock,time*1000);
+  
+};
+
 g.clear();
 fullRedraw();
 var minuteInterval = setInterval(redraw, 60 * 1000);
@@ -133,4 +142,4 @@ var minuteInterval = setInterval(redraw, 60 * 1000);
 //Bangle.setUI("clock");
 Bangle.loadWidgets();
 Bangle.drawWidgets();
-
+updateTimeout();
