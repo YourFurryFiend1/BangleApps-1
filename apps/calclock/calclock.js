@@ -44,7 +44,7 @@ function drawEventHeader(event, y) {
       g.drawString(daysStr,x,y);
     }
   }
-  y += 21;
+  y += 20;
   return y;
 }
 
@@ -57,13 +57,13 @@ function drawEventBody(event, y) {
     lines[1] += "...";
   }
   g.drawString(lines.join('\n'),10,y);
-  y+=20 * lines.length;
+  y+=10 * lines.length;
   if(event.location) {
     g.drawImage(atob("DBSBAA8D/H/nDuB+B+B+B3Dn/j/B+A8A8AYAYAYAAAAAAA=="),10,y);
     var loclines = g.wrapString(event.location, g.getWidth()-30);
     if(loclines.length>1) loclines[0] += "...";
     g.drawString(loclines[0],25,y);
-    y+=20;
+    y+=10;
   }
   if (event.color) {
     var oldColor = g.getColor();
