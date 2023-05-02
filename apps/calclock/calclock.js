@@ -135,6 +135,12 @@ const updateTimeout = function(){
   
 };
 
+Bangle.setUI({
+    mode : 'custom',
+    back : Bangle.showClock, // B2: SW back button to exit
+    btn :  _=>Bangle.showClock(), // B1&2: HW button to exit. 
+  });
+
 g.clear();
 fullRedraw();
 var minuteInterval = setInterval(redraw, 60 * 1000);
