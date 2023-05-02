@@ -1,3 +1,4 @@
+
 Bangle.loadWidgets();
 Bangle.drawWidgets();
 
@@ -31,12 +32,12 @@ var imageTop = 24;
 
 function drawInfo() {
   g.reset().clearRect(Bangle.appRect);
-  g.drawImage(logo,W-60,24);
-  g.setFont("4x6").setFontAlign(0,0).drawString("BANGLEJS.COM",W-30,56);
+  //g.drawImage(logo,W-60,24);
   var h=8, y = 24-h;
   g.setFont("6x8").setFontAlign(-1,-1);
-  g.drawString(/*LANG*/"Powered by Espruino",0,y+=4+h);
-  g.drawString(/*LANG*/"Version "+ENV.VERSION,0,y+=h);
+  g.drawString("Belongs to Dan Jeffery",0,y+=4+h);
+  g.drawString("Phone: 07541954005",W-120,37);
+  g.drawString(/*LANG*/"Ver "+ENV.VERSION,0,y+=h);
   g.drawString("Commit "+ENV.GIT_COMMIT,0,y+=h);
 
   getVersion("Bootloader","boot.info");
