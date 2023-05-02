@@ -34,3 +34,14 @@
     }
   });
 }
+
+let timeout;
+const updateTimeout = function(){
+  
+  let time=20;
+  if (timeout) clearTimeout(timeout);
+  timeout = setTimeout(Bangle.showClock,time*1000);
+  
+};
+
+updateTimeout();
